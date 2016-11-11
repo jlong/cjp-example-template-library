@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<job-template>
+  <actions/>
+  <description>Template for freestyle GitHub projects</description>
+  <displayName>Pipeline GitHub Project</displayName>
+  <attributes>
+    <template-attribute>
+      <name>name</name>
+      <displayName>Name</displayName>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
+    </template-attribute>
+    <template-attribute>
+      <name>description</name>
+      <displayName>Job description</displayName>
+      <helpHtml>Enter a job description!</helpHtml>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.TextAreaControl"/>
+    </template-attribute>
+    <template-attribute>
+      <name>username</name>
+      <displayName>GitHub username</displayName>
+      <helpHtml>The username or organization on GitHub where the repository is hosted. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the username is &quot;jlong&quot;.</helpHtml>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
+    </template-attribute>
+    <template-attribute>
+      <name>repository</name>
+      <displayName>GitHub repository</displayName>
+      <helpHtml>The GitHub repository under the user on GitHub. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the repository is &quot;hello-c&quot;.</helpHtml>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
+    </template-attribute>
+    <template-attribute>
+      <name>credentials</name>
+      <displayName>GitHub credentials</displayName>
+      <helpHtml>The credentials for accessing the GitHub repository.</helpHtml>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.CredentialsControl">
+        <kind>com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl</kind>
+      </control>
+    </template-attribute>
+  </attributes>
+  <properties>
+    <com.cloudbees.hudson.plugins.modeling.properties.BuildNowTextProperty>
+      <text>Run</text>
+    </com.cloudbees.hudson.plugins.modeling.properties.BuildNowTextProperty>
+    <com.cloudbees.hudson.plugins.modeling.properties.CustomPronounProperty>
+      <text>Job</text>
+    </com.cloudbees.hudson.plugins.modeling.properties.CustomPronounProperty>
+  </properties>
+  <instantiable>true</instantiable>
+  <transformer class="com.cloudbees.hudson.plugins.modeling.transformer.GroovyTemplateModelTransformer">
+    <template ref="flow-definition.xml"></template>
+    <sandbox>false</sandbox>
+  </transformer>
+</job-template>
