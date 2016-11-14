@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <job-template>
   <actions/>
-  <description>Template for pipeline GitHub projects</description>
-  <displayName>Pipeline GitHub Project</displayName>
+  <description>Template for multi-branch pipeline GitHub projects</description>
+  <displayName>Multi-branch Pipeline GitHub Project</displayName>
   <attributes>
     <template-attribute>
       <name>name</name>
@@ -46,7 +46,8 @@
   </properties>
   <instantiable>true</instantiable>
   <transformer class="com.cloudbees.hudson.plugins.modeling.transformer.GroovyTemplateModelTransformer">
-    <template><%= include "flow-definition.xml", escape_xml: true %></template>
+    <template><%= include "multibranch-project.xml", escape_xml: true %></template>
     <sandbox>false</sandbox>
   </transformer>
 </job-template>
+
