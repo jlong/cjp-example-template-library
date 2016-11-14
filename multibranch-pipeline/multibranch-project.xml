@@ -40,8 +40,8 @@
     <data>
       <jenkins.branch.BranchSource>
         <source class="jenkins.plugins.git.GitSCMSource">
-          <id>https://github.com/${username}/${repository}</id>
-          <remote>https://github.com/${username}/${repository}</remote>
+          <id>https://github.com/${owner}/${repository}</id>
+          <remote>https://github.com/${owner}/${repository}</remote>
           <credentialsId>${credentials}</credentialsId>
           <includes>*</includes>
           <excludes></excludes>

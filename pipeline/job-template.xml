@@ -16,9 +16,9 @@
       <control class="com.cloudbees.hudson.plugins.modeling.controls.TextAreaControl"/>
     </template-attribute>
     <template-attribute>
-      <name>username</name>
-      <displayName>GitHub username</displayName>
-      <helpHtml>The username or organization on GitHub where the repository is hosted. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the username is &quot;jlong&quot;.</helpHtml>
+      <name>owner</name>
+      <displayName>GitHub owner</displayName>
+      <helpHtml>The username or organization on GitHub where the repository is hosted. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the owner is &quot;jlong&quot;.</helpHtml>
       <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
     </template-attribute>
     <template-attribute>
