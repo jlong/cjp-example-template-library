@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
   <actions/>
-  <description></description>
+  <description>${description}</description>
   <properties>
     <com.cloudbees.hudson.plugins.folder.properties.EnvVarsFolderProperty>
       <properties></properties>
