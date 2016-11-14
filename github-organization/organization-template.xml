@@ -18,7 +18,7 @@
     <template-attribute>
       <name>owner</name>
       <displayName>GitHub owner</displayName>
-      <helpHtml>The username or organization on GitHub where the repository is hosted. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the username is &quot;jlong&quot;.</helpHtml>
+      <helpHtml>The username or organization on GitHub where the repository is hosted. For example, for the repository url &quot;http://github.com/jlong/hello-c&quot; the owner is &quot;jlong&quot;.</helpHtml>
       <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
     </template-attribute>
     <template-attribute>
