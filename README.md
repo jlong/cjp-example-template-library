@@ -2,7 +2,6 @@
 
 This repository is an example template library for CloudBees Jenkins Enterprise.
 
-
 # Example templates
 
 The following examples are included:
@@ -12,7 +11,6 @@ The following examples are included:
 * [Pipeline](pipeline/github-pipeline-project.xml.template)
 * [Multi-branch Pipeline](multibranch-pipeline/multibranch-pipeline-github-project.xml.template)
 * [GitHub Organization](github-organization/github-organization.xml.template)
-
 
 # File structure
 
@@ -24,48 +22,48 @@ to make tempalte development easier.
 
 This is done with the include directive:
 
-	<%= include "file.xml" %>
+    <%= include "file.xml" %>
 
 Some parts of a template may require escaping to become valid XML. When this is
 necessary we pass the `escape_xml` parameter as well:
 
-	<%= include "file.xml", escape_xml: true %>
+    <%= include "file.xml", escape_xml: true %>
 
 
-# Template lifecycle
+# Template Lifecycle
 
 
-	┌─────────────────────────┐  ┌─────────────────────────┐  ┌─────────────────────────┐
-	│                         │  │                         │  │                         │
-	│          User           │  │       Repository        │  │         Jenkins         │
-	│                         │  │                         │  │                         │
-	└─────────────────────────┘  └─────────────────────────┘  └─────────────────────────┘
-							 │                            │                            │
-
-							 │ Add template               │                            │
-								───────────────────────────▶  New template
-							 │                            │───────────────────────────▶░ ────╮ Generate template
-																																				 ░     │ config.xml
-							 │                            │                            ░ ◀───╯
-
-							 │                            │                            │
-
-							 │ Adds new job               │                            │
-								────────────────────────────────────────────────────────▶░ ────╮ Generate template
-							 │                            │                            ░     │ config.xml
-																																				 ░ ◀───╯
-							 │                            │                            ░
-																																				 ░ ────╮ Generate job
-							 │                            │                            ░     │ config.xml
-																																				 ░ ◀───╯
-							 │                            │                            │
-								 Update template
-							 │───────────────────────────▶│ Updated template           │
-																						 ───────────────────────────▶░ ────╮ Regenerate template
-							 │                            │                            ░     │ config.xml
-																																				 ░ ◀───╯
-							 │                            │                            ░
-																																				 ░ ────╮ Regenerate job
-							 │                            │                            ░     │ config.xml
-																																				 ░ ◀───╯
-							 │                            │                            │
+    ┌─────────────────────────┐  ┌─────────────────────────┐  ┌─────────────────────────┐
+    │                         │  │                         │  │                         │
+    │          User           │  │       Repository        │  │         Jenkins         │
+    │                         │  │                         │  │                         │
+    └─────────────────────────┘  └─────────────────────────┘  └─────────────────────────┘
+                 │                            │                            │
+  
+                 │ Add template               │                            │
+                  ───────────────────────────▶  New template
+                 │                            │───────────────────────────▶░ ────╮ Generate template
+                                                                           ░     │ config.xml
+                 │                            │                            ░ ◀───╯
+  
+                 │                            │                            │
+  
+                 │ Adds new job               │                            │
+                  ────────────────────────────────────────────────────────▶░ ────╮ Generate template
+                 │                            │                            ░     │ config.xml
+                                                                           ░ ◀───╯
+                 │                            │                            ░
+                                                                           ░ ────╮ Generate job
+                 │                            │                            ░     │ config.xml
+                                                                           ░ ◀───╯
+                 │                            │                            │
+                   Update template
+                 │───────────────────────────▶│ Updated template           │
+                                               ───────────────────────────▶░ ────╮ Regenerate template
+                 │                            │                            ░     │ config.xml
+                                                                           ░ ◀───╯
+                 │                            │                            ░
+                                                                           ░ ────╮ Regenerate job
+                 │                            │                            ░     │ config.xml
+                                                                           ░ ◀───╯
+                 │                            │                            │
