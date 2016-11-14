@@ -11,8 +11,8 @@
     </template-attribute>
     <template-attribute>
       <name>description</name>
-      <displayName>Job description</displayName>
-      <helpHtml>Enter a job description!</helpHtml>
+      <displayName>Organization description</displayName>
+      <helpHtml>Enter a organization description!</helpHtml>
       <control class="com.cloudbees.hudson.plugins.modeling.controls.TextAreaControl"/>
     </template-attribute>
     <template-attribute>
