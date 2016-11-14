@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<job-template>
+  <actions/>
+  <description></description>
+  <displayName>Album Project</displayName>
+  <attributes>
+    <template-attribute>
+      <name>name</name>
+      <displayName>Name</displayName>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.TextFieldControl"/>
+    </template-attribute>
+    <template-attribute>
+      <name>tracks</name>
+      <displayName>Tracks</displayName>
+      <control class="com.cloudbees.hudson.plugins.modeling.controls.NestedAuxModelControl">
+        <itemType>albums/track</itemType>
+        <mode>HOMO</mode>
+      </control>
+    </template-attribute>
+  </attributes>
+  <properties>
+    <com.cloudbees.hudson.plugins.modeling.properties.BuildNowTextProperty>
+      <text>Build CD</text>
+    </com.cloudbees.hudson.plugins.modeling.properties.BuildNowTextProperty>
+    <com.cloudbees.hudson.plugins.modeling.properties.CustomPronounProperty>
+      <text>CD</text>
+    </com.cloudbees.hudson.plugins.modeling.properties.CustomPronounProperty>
+  </properties>
+  <instantiable>true</instantiable>
+  <transformer class="com.cloudbees.hudson.plugins.modeling.transformer.GroovyTemplateModelTransformer">
+    <template><%= include "project.xml", escape_xml: true %></template>
+  <sandbox>false</sandbox>
+  </transformer>
+<job-template>
