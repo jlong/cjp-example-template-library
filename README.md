@@ -34,7 +34,7 @@ necessary we pass the `escape_xml` parameter as well:
     <!-- include "file.xml", escape_xml: true -->
 
 
-# Template Lifecycle
+# Template lifecycle
 
 Templates are compiled in two stages:
 
