@@ -63,7 +63,7 @@ job `config.xml` is produced. In this stage, template variables (`${variable}`) 
   
                  │                            │                            │
   
-                 │ Create instance of template                             │
+                 │ Create template instance   |                            │
                   ────────────────────────────────────────────────────────▶░ ────╮ (1) Generate template
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
