@@ -63,27 +63,27 @@ job `config.xml` is produced. In this stage, template variables (`${variable}`) 
     │                         │  │                         │  │                         │
     └─────────────────────────┘  └─────────────────────────┘  └─────────────────────────┘
                  │                            │                            │
-  
+
                  │ Add template               │                            │
                   ───────────────────────────▶  New template
                  │                            │───────────────────────────▶░ ────╮ (1) Generate template
                                                                            ░     │ config.xml
                  │                            │                            ░ ◀───╯
-  
+
                  │                            │                            │
-  
-                 │ Create template instance   |                            │
-                  ────────────────────────────────────────────────────────▶░ ────╮ (2) Generate job
-                 │                            │                            ░     │ config.xml
-                                                                           ░ ◀───╯
-                 │                            │                            │
-                   Update template
-                 │───────────────────────────▶│ Updated template           │
-                                               ───────────────────────────▶░ ────╮ (1) Regenerate template
-                 │                            │                            ░     │ config.xml
-                                                                           ░ ◀───╯
-                 │                            │                            ░
-                                                                           ░ ────╮ (2) Regenerate job
-                 │                            │                            ░     │ config.xml
-                                                                           ░ ◀───╯
+                   Create template instance
+                 |────────────────────────────────────────────────────────▶░ ────╮ (2) Generate job
+                                                                           ░     │ config.xml
+                 |                            |                            ░ ◀───╯
+
+                 | Update template            |                            |
+                  ───────────────────────────▶  Updated template
+                 |                            |───────────────────────────▶░ ────╮ (1) Regenerate template
+                                                                           ░     │ config.xml
+                 |                            |                            ░ ◀───╯
+                                                                           ░
+                 |                            |                            ░ ────╮ (2) Regenerate job
+                                                                           ░     │ config.xml
+                 |                            |                            ░ ◀───╯
+
                  │                            │                            │
