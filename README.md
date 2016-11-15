@@ -17,22 +17,31 @@ The following examples are included:
 Template repositories can be structured however the user desires. The only
 requirement is that template filenames end in `.xml.template`.
 
-Templates in this repository demostrate how to include other files in templates
-to make tempalte development easier.
+Library Templates are written using the same XML that Jenkins saves CJP
+Template configuration to disk. In fact, you can take the `config.xml` for any
+CJP Template and use that as the basis for a template in your library without
+any modification.
 
-This is done with the include directive:
+In addition the the standard XML for templates, library templates can also
+use directives. The `include` directive allows you to build templates from
+several files. This facilitates sharing code between templates.
+
+To include another file in a template, you write:
 
     <!-- include "file.xml" -->
 
-The include directive is a special comment in the file that tells Jenkins how
-to combine files into a single template.
+References to files are relative to the directory of the current file. So to
+include a file one directory up (in the parent directory) you write:
 
+    <!-- include "../file.xml" -->
 
 Some parts of a template may require escaping to become valid XML. When this is
 necessary we pass the `escape_xml` parameter as well:
 
     <!-- include "file.xml", escape_xml: true -->
 
+When true, the `escape_xml` parameter will cause all angle brackets(`<`, `>`)
+and ampersands (`&`) to be escaped.
 
 # Template lifecycle
 
@@ -64,11 +73,7 @@ job `config.xml` is produced. In this stage, template variables (`${variable}`) 
                  │                            │                            │
   
                  │ Create template instance   |                            │
-                  ────────────────────────────────────────────────────────▶░ ────╮ (1) Generate template
-                 │                            │                            ░     │ config.xml
-                                                                           ░ ◀───╯
-                 │                            │                            ░
-                                                                           ░ ────╮ (2) Generate job
+                  ────────────────────────────────────────────────────────▶░ ────╮ (2) Generate job
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
                  │                            │                            │
