@@ -36,10 +36,17 @@ necessary we pass the `escape_xml` parameter as well:
 
 # Template Lifecycle
 
+Templates are compiled in two stages:
 
-Directives, like `<-- include "file.xml" -->`, are evaluated while generating the template
-`config.xml` (1). However, template variables (`${variable}`) and expressions
-(`<%= expression %>`) are evaluated when generating the job `config.xml` (2).
+(1) In the first stage, the template definition from the repository is compiled
+to produce the template's `config.xml` which is stored in the Jenkins
+configuration. In this stage, directives (like `<-- include "file.xml" -->`) are
+evaluated.
+
+(2) In the second stage, the template `config.xml` is evaluated and the instance
+job `config.xml` is produced. In this stage, template variables (`${variable}`) and expressions
+(`<%= expression %>`) are evaluated.
+
 
     ┌─────────────────────────┐  ┌─────────────────────────┐  ┌─────────────────────────┐
     │                         │  │                         │  │                         │
@@ -56,7 +63,7 @@ Directives, like `<-- include "file.xml" -->`, are evaluated while generating th
   
                  │                            │                            │
   
-                 │ Adds new job               │                            │
+                 │ Creates instance of template                            │
                   ────────────────────────────────────────────────────────▶░ ────╮ (1) Generate template
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
