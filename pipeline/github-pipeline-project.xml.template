@@ -46,7 +46,7 @@
   </properties>
   <instantiable>true</instantiable>
   <transformer class="com.cloudbees.hudson.plugins.modeling.transformer.GroovyTemplateModelTransformer">
-    <template><%= include "flow-definition.xml", escape_xml: true %></template>
+    <template><!-- include "flow-definition.xml", escape_xml: true --></template>
     <sandbox>false</sandbox>
   </transformer>
 </job-template>

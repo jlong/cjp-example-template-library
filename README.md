@@ -12,7 +12,7 @@ The following examples are included:
 * [Multi-branch Pipeline](multibranch-pipeline/multibranch-pipeline-github-project.xml.template)
 * [GitHub Organization](github-organization/github-organization.xml.template)
 
-# File structure
+# File format and structure
 
 Template repositories can be structured however the user desires. The only
 requirement is that template filenames end in `.xml.template`.
@@ -22,16 +22,24 @@ to make tempalte development easier.
 
 This is done with the include directive:
 
-    <%= include "file.xml" %>
+    <!-- include "file.xml" -->
+
+The include directive is a special comment in the file that tells Jenkins how
+to combine files into a single template.
+
 
 Some parts of a template may require escaping to become valid XML. When this is
 necessary we pass the `escape_xml` parameter as well:
 
-    <%= include "file.xml", escape_xml: true %>
+    <!-- include "file.xml", escape_xml: true -->
 
 
 # Template Lifecycle
 
+
+Directives, like `<-- include "file.xml" -->`, are evaluated while generating the template
+`config.xml` (1). However, template variables (`${variable}`) and expressions
+(`<%= expression %>`) are evaluated when generating the job `config.xml` (2).
 
     ┌─────────────────────────┐  ┌─────────────────────────┐  ┌─────────────────────────┐
     │                         │  │                         │  │                         │
@@ -42,28 +50,28 @@ necessary we pass the `escape_xml` parameter as well:
   
                  │ Add template               │                            │
                   ───────────────────────────▶  New template
-                 │                            │───────────────────────────▶░ ────╮ Generate template
+                 │                            │───────────────────────────▶░ ────╮ (1) Generate template
                                                                            ░     │ config.xml
                  │                            │                            ░ ◀───╯
   
                  │                            │                            │
   
                  │ Adds new job               │                            │
-                  ────────────────────────────────────────────────────────▶░ ────╮ Generate template
+                  ────────────────────────────────────────────────────────▶░ ────╮ (1) Generate template
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
                  │                            │                            ░
-                                                                           ░ ────╮ Generate job
+                                                                           ░ ────╮ (2) Generate job
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
                  │                            │                            │
                    Update template
                  │───────────────────────────▶│ Updated template           │
-                                               ───────────────────────────▶░ ────╮ Regenerate template
+                                               ───────────────────────────▶░ ────╮ (1) Regenerate template
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
                  │                            │                            ░
-                                                                           ░ ────╮ Regenerate job
+                                                                           ░ ────╮ (2) Regenerate job
                  │                            │                            ░     │ config.xml
                                                                            ░ ◀───╯
                  │                            │                            │

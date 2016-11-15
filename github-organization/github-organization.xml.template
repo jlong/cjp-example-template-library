@@ -40,7 +40,7 @@
   </properties>
   <instantiable>true</instantiable>
   <transformer class="com.cloudbees.hudson.plugins.modeling.transformer.GroovyTemplateModelTransformer">
-    <template><%= include "organization-folder.xml", escape_xml: true %></template>
+    <template><!-- include "organization-folder.xml", escape_xml: true --></template>
     <sandbox>false</sandbox>
   </transformer>
 </organization-template>
