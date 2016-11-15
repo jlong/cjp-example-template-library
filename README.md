@@ -72,18 +72,18 @@ job `config.xml` is produced. In this stage, template variables (`${variable}`) 
 
                  │                            │                            │
                    Create template instance
-                 |────────────────────────────────────────────────────────▶░ ────╮ (2) Generate job
+                 │────────────────────────────────────────────────────────▶░ ────╮ (2) Generate job
                                                                            ░     │ config.xml
-                 |                            |                            ░ ◀───╯
+                 │                            │                            ░ ◀───╯
 
-                 | Update template            |                            |
+                 │ Update template            │                            │
                   ───────────────────────────▶  Updated template
-                 |                            |───────────────────────────▶░ ────╮ (1) Regenerate template
+                 │                            │───────────────────────────▶░ ────╮ (1) Regenerate template
                                                                            ░     │ config.xml
-                 |                            |                            ░ ◀───╯
+                 │                            │                            ░ ◀───╯
                                                                            ░
-                 |                            |                            ░ ────╮ (2) Regenerate job
+                 │                            │                            ░ ────╮ (2) Regenerate job
                                                                            ░     │ config.xml
-                 |                            |                            ░ ◀───╯
+                 │                            │                            ░ ◀───╯
 
                  │                            │                            │
